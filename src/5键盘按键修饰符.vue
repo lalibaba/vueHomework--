@@ -10,13 +10,13 @@
 
 <script>
 export default {
-  name: "App",
+  name: 'App',
   components: {},
   methods: {
-    enter () {
+    enter() {
       console.log(enter)
     },
-    esc () {
+    esc() {
       console.log(esc)
     },
   },

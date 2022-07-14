@@ -21,9 +21,9 @@
       数组   - 关联的是复选框的value属性
        -->
       <span>爱好: </span>
-      <input type="checkbox" v-model="hobby" value="抽烟" />抽烟
-      <input type="checkbox" v-model="hobby" value="喝酒" />喝酒
-      <input type="checkbox" v-model="hobby" value="写代码" />写代码
+      <input type="checkbox" v-model="hobby" />抽烟
+      <input type="checkbox" v-model="hobby" />喝酒
+      <input type="checkbox" v-model="hobby" />写代码
     </div>
     <div>
       <span>性别: </span>
@@ -46,7 +46,7 @@ export default {
     return {
       city: '',
       city1: [],
-      hobby: [],
+      hobby: '',
       sex: '男',
       text: '',
     }

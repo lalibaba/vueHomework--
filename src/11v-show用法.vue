@@ -31,16 +31,16 @@
 // 思考： 如果一个元素一进入页面 要么显示 要么不现实，后续不会进行切换， 用谁？？
 
 export default {
-  data() {
+  data () {
     return {
       isShow: false,
       isIf: false,
       age: 18,
-    };
+    }
   },
 
-  mounted() {},
+  mounted () {},
 
   methods: {},
-};
+}
 </script>
