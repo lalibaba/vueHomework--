@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // let arr = [{a:100}, {a: 20}, {a:-10}]
+      // let sum=arr.reduce((pre,curr)=>{return pre+curr.a},0)
+      // console.log(sum);
+
+      // let str = 'asdasdasdasdasddsadasd'
+      // let arr = str.split('')
+      // let obj = arr.reduce((pre, curr) => {
+      //   pre[curr] ? pre[curr]++ : (pre[curr] = 1)
+      //   return pre
+      // }, {})
+      // console.log(obj)
+
+      // let url = 'http://www.baidu.com?name=zhangsan&age=18&sex=nan#'
+      // process(url)
+      // function process(url){
+      //   let index1 = url.indexOf('?')
+      //   let index2 = url.indexOf('#')
+      //   let arr = url.slice(index1 + 1, index2).split('&')
+      //   let obj = arr.reduce((pre, curr) => {
+      //     // let arr1 = curr.split('=')
+      //     // let key = arr1[0]
+      //     // let value = arr1[1]
+      //     // pre[key] = value
+      //     [key,value]=curr.split("=")
+      //     pre[key]=value
+      //     return pre
+      //   }, {})
+      //   console.log(obj)
+      //   return obj
+      // }
+
+      let friends = [
+        {
+          name: 'Anna',
+          books: ['Bible', 'Harry Potter'],
+          age: 21,
+        },
+        {
+          name: 'Bob',
+          books: ['War and peace', 'Romeo and Juliet'],
+          age: 26,
+        },
+        {
+          name: 'Alice',
+          books: ['The Lord of the Rings', 'The Shining'],
+          age: 18,
+        },
+      ]
+
+      let obj = friends.reduce((pre, curr) => {
+        pre.push(...curr.books)
+        return pre
+      }, [])
+      console.log(obj)
+    </script>
+  </body>
+</html>
