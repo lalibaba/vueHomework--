@@ -17,9 +17,9 @@ module.exports = {
   env: {
     node: true,
   },
-  extends: ["plugin:vue/essential", "eslint:recommended"],
+  extends: ['plugin:vue/essential', 'eslint:recommended'],
   parserOptions: {
-    parser: "@babel/eslint-parser",
+    parser: '@babel/eslint-parser',
     requireConfigFile: false,
   },
   // https://eslint.bootcss.com/docs/rules/
@@ -33,7 +33,10 @@ module.exports = {
     // 第二个参数
     // always（默认）：在语句末尾需要分号
     // never：不允许加分号
-    semi: [1, "never"],
-    "space-before-function-paren": ["error", "always"],
+    semi: [1, 'never'],
+    'space-before-function-paren': ['error', 'always'],
+    'vue/multi-word-component-names': 'off',
+    'space-before-function-paren': 'off', // 函数括号前空格
+    'no-dupe-keys': 'off',
   },
-};
+}
