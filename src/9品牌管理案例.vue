@@ -29,7 +29,7 @@
             <td>{{ item.time | fn }}</td>
             <td><a href="#" @click="del(item.id)">删除</a></td>
           </tr>
-          <!-- <tr style="background-color: #EEE">
+          <!-- <tr style="background-color: #EEE"
               <td>统计:</td>
               <td colspan="2">总价钱为: 0</td>
               <td colspan="2">平均价: 0</td>
