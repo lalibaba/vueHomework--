@@ -48,11 +48,12 @@ export default {
       this.list.splice(index, 1)
     },
     add() {
+      console.log(this.tag)
       if (this.tag == 1) {
         if (this.name.trim() && this.age != 0 && this.sex) {
-          this.list[this.index].name = this.name
-          this.list[this.index].age = this.age
-          this.list[this.index].sex = this.sex
+          this.list[this.ind].name = this.name
+          this.list[this.ind].age = this.age
+          this.list[this.ind].sex = this.sex
           this.tag = 0
           this.name = ''
           this.age = ''
@@ -62,21 +63,24 @@ export default {
         }
       } else if (this.name.trim() && this.age != 0 && this.sex) {
         this.list.push({ name: this.name, age: this.age, sex: this.sex })
+        this.name = ''
+        this.age = ''
+        this.sex = ''
       } else {
         alert('必须都有值才能增加新数据')
       }
     },
     fix(val) {
-      this.tag = val
+      this.tag = 1
       this.name = this.list[val].name
       this.age = this.list[val].age
       this.sex = this.list[val].sex
-      this.index = this.list.findIndex((ele) => ele.name == this.name)
+      this.ind = this.list.findIndex((ele) => ele.name == this.name)
     },
   },
   data() {
     return {
-      index: 0,
+      ind: null,
       tag: 0,
       name: '',
       age: 0,

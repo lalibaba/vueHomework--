@@ -1,12 +1,12 @@
 <template>
   <div class="wrap">
-    <div
-      v-for="(item, index) in arr"
-      :key="index"
-      class="nav_left"
-      :id="item.first_id"
-    >
-      <div class="nav_content">
+    <div class="nav_left">
+      <div
+        class="nav_content"
+        v-for="(item, index) in arr"
+        :key="index"
+        :id="item.first_id"
+      >
         <span
           @click="isActive = index"
           :class="{ active: isActive == index }"
