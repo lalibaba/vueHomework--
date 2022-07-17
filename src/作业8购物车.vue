@@ -28,7 +28,7 @@
       <tfoot>
         <tr>
           <td>合计:</td>
-          <td colspan="5"></td>
+          <td colspan="5">{{ total }}</td>
         </tr>
       </tfoot>
     </table>
@@ -69,6 +69,21 @@ export default {
     }
   },
   computed: {
+    total() {
+      // var sum = 0
+      // // return sum
+      // this.goodList.forEach(function (ele) {
+      //   if (ele.checked) sum = sum + ele.price * ele.num
+      // })
+      // return sum
+      return this.goodList.reduce((pre, curr) => {
+        if (curr.checked) {
+          return pre + curr.num * curr.price
+        } else {
+          return pre
+        }
+      }, 0)
+    },
     isAll: {
       set(val) {
         // 7. 全选框 - 选中状态(true/false)

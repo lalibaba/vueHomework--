@@ -1,6 +1,6 @@
 <template>
   <tr>
-    <td><input type="checkbox" :v-model="obj.checked" /></td>
+    <td><input type="checkbox" v-model="obj.checked" /></td>
     <td>{{ obj.name }}</td>
     <td>{{ obj.price }}</td>
     <td>
