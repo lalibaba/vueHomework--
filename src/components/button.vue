@@ -1,11 +1,26 @@
 <template>
   <div>
-    <button :class="type">{{ title }}</button>
+    <button :class="type" @click="btn">{{ title }}</button>
   </div>
 </template>
 <script>
 export default {
-  props: ['title', 'type'],
+  // props: ['title', 'type'],
+  props: {
+    title: String,
+    type: {
+      type: String,
+      default: 'success',
+      validator: (val) => {
+        return ['primary', 'good', 'success'].includes(val)
+      },
+    },
+  },
+  methods: {
+    btn() {
+      this.$emit('click1',)
+    },
+  },
 }
 </script>
 <style scoped>
