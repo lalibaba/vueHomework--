@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import App from './作业3模拟v-model.vue'
+import App from './App.vue'
 
 Vue.config.productionTip = false
 new Vue({
