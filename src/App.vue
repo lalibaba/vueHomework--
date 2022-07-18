@@ -6,7 +6,7 @@
 export default {
   name: 'App',
   data() {
-    return {}
+    return {} //备注
   },
 }
 </script>
