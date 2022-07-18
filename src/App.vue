@@ -10,7 +10,7 @@ import Beve from './components/eventBusB.vue'
 import Aeve from './components/eventBusA.vue'
 export default {
   data() {
-    return {}//好好
+    return {}//好好好
   },
   components: {
     Beve,
