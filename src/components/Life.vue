@@ -27,7 +27,7 @@ export default {
   created() {
     this.msg = 'Hello Vue hahahhaha'
     console.log('created执行')
-   
+
     // debugger
     //初始化场景数据
   },
@@ -53,7 +53,7 @@ export default {
   },
   destroyed() {
     console.log('destroyed执行了')
-     this.timer = setTimeout(() => {
+    this.timer = setTimeout(() => {
       console.log('00000')
     }, 4000)
   },
