@@ -1,17 +1,17 @@
 <template>
   <div>
-    <Life></Life>
+    <UseAxios></UseAxios>
   </div>
 </template>
 
 <script>
-import Life from './components/UseDirective.vue'
+import UseAxios from './components/UseAxios.vue'
 export default {
-  data() {
-    return { sh: true }
+  data () {
+    return {}
   },
   components: {
-    Life: Life,
+    UseAxios,
   },
 }
 </script>

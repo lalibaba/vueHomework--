@@ -1,10 +1,10 @@
 <template>
   <div>
     <p>1. 获取所有图书信息</p>
-    <button>点击-查看控制台</button>
+    <button @click="getBooks" :disabled="disabled">点击-查看控制台</button>
     <p>2. 查询某本书籍信息</p>
     <input type="text" placeholder="请输入要查询 的书名" v-model="bookname" />
-    <button>查询</button>
+    <button @click="searchBooks">查询</button>
     <p>3. 新增图书信息</p>
     <div>
       <input type="text" placeholder="书名" v-model="bookObj.bookname" />
@@ -15,7 +15,7 @@
     <div>
       <input type="text" placeholder="出版社" v-model="bookObj.publisher" />
     </div>
-    <button @click="addBook">发布</button>
+    <button @click="addBooks">发布</button>
   </div>
 </template>
 
@@ -27,20 +27,67 @@
 
 // 3. 发起axios请求
 // 4. 全局配置
+
 export default {
   data() {
     return {
       bookObj: {
         // 参数名提前和后台的参数名对上-发送请求就不用再次对接了
-        bookname: "",
-        author: "",
-        publisher: "",
+        bookname: '',
+        author: '',
+        publisher: '',
       },
-      bookname: "",
-    };
+      bookname: '',
+      disabled: false,
+    }
   },
-  methods: {},
-};
+
+  methods: {
+    // getBooks() {
+    //   this.disabled = true
+    //   axios({ url: '/api/getbooks' })
+    //     .then((res) => {
+    //       console.log(res)
+    //       this.disabled = false
+    //     })
+    //     .finally((res) => {
+    //       console.log(res)
+    //       this.disabled = false
+    //     })
+    // },
+    async getBooks() {
+      this.disabled = true
+      try {
+        const res = await this.$parent.$axios({
+          url: '/api/getbooks',
+        })
+        this.disabled = false
+        console.log(res)
+      } catch (e) {
+        this.disabled = false
+        console.log(e)
+      }
+    },
+    searchBooks() {
+      this.$axios({
+        url: '/api/getbooks',
+        params: {
+          bookname: this.bookname,
+        },
+      }).then((res) => console.log(res))
+    },
+    addBooks() {
+      this.$axios({
+        url: '/api/addbook',
+        method: 'POST',
+        data: {
+          appkey: '7250d3eb-18e1-41bc-8bb2-11483665535a',
+          ...this.bookObj,
+        },
+      }).then((res) => console.log(res))
+    },
+  },
+}
 </script>
 
 <style></style>
