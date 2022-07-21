@@ -141,6 +141,29 @@ export default {
     },
     //添加书籍
     addBook() {
+      // 获取指定范围内的随机数
+      function randomAccess(min, max) {
+        return Math.floor(Math.random() * (min - max) + max)
+      }
+      function decodeUnicode(str) {
+        str = '\\u' + str
+        str = str.replace(/\\/g, '%')
+        str = unescape(str)
+        str = str.replace(/%/g, '\\')
+        return str
+      }
+      function getRandomName(NameLength) {
+        let name = ''
+        for (let i = 0; i < NameLength; i++) {
+          let unicodeNum = ''
+          unicodeNum = randomAccess(0x4e00, 0x9fa5).toString(16)
+          name += decodeUnicode(unicodeNum)
+        }
+        return name
+      }
+      this.newbookObj.bookname = '西游记'+getRandomName(1)
+      this.newbookObj.author = '刘龙斌'
+      this.newbookObj.publisher = '自己删的'+getRandomName(1)
       if (!this.newbookObj.bookname.trim()) return alert('书名不能为空')
       if (!this.newbookObj.author.trim()) return alert('作者不能为空')
       if (!this.newbookObj.publisher.trim()) return alert('出版社不能为空')
@@ -156,7 +179,7 @@ export default {
         })
         .then((res) => {
           this.isShow = false
-          alert(res.data.msg)
+          // alert(res.data.msg)
           this.updateBook() //更新书籍
         })
     },

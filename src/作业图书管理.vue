@@ -22,8 +22,8 @@ export default {
       this.list = res.data.data
       console.log(res)
     })
+    
   },
-  
 }
 </script>
 
