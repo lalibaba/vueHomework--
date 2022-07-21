@@ -34,6 +34,8 @@
               class="form-control"
               placeholder="书名"
               v-model="newbookObj.bookname"
+              :readonly="read"
+              @click="read = false"
             />
           </div>
         </div>
@@ -45,6 +47,8 @@
               class="form-control"
               placeholder="作者"
               v-model="newbookObj.author"
+              :readonly="read"
+              @click="read = false"
             />
           </div>
         </div>
@@ -56,13 +60,17 @@
               class="form-control"
               placeholder="出版社"
               v-model="newbookObj.publisher"
+              :readonly="read"
+              @click="read = false"
             />
           </div>
         </div>
         <!-- &nbsp;&nbsp;&nbsp;&nbsp; -->
         <!-- 阻止表单提交 -->
         &nbsp;&nbsp;
-        <button class="btn btn-primary" @click.prevent="addBook">新增</button>
+        <button class="btn btn-primary" @click.prevent="addBook" v-show="!read">
+          新增
+        </button>
       </form>
       <!-- 数据表格 -->
       <table class="table table-bordered table-hover mt-2">
@@ -82,7 +90,9 @@
             <td>{{ item.author }}</td>
             <td>{{ item.publisher }}</td>
             <td>
-              <a href="javascript:;" @click="delbook(item.id)">删除详情</a>
+              <a href="javascript:;" @click="delbook(item.id)">删除</a
+              >&nbsp;&nbsp;
+              <a href="javascript:;" @click="bookinfo(item.id)">详情</a>
             </td>
           </tr>
         </tbody>
@@ -95,6 +105,7 @@
 export default {
   data() {
     return {
+      read: false,
       searchBook: '',
       newbookObj: {
         bookname: '',
@@ -141,6 +152,7 @@ export default {
     },
     //添加书籍
     addBook() {
+      // this.read = false
       // 获取指定范围内的随机数
       function randomAccess(min, max) {
         return Math.floor(Math.random() * (min - max) + max)
@@ -161,9 +173,9 @@ export default {
         }
         return name
       }
-      this.newbookObj.bookname = '西游记'+getRandomName(1)
-      this.newbookObj.author = '刘龙斌'
-      this.newbookObj.publisher = '自己删的'+getRandomName(1)
+      this.newbookObj.bookname = 'yyds' + getRandomName(1)
+      this.newbookObj.author = 'yyds'
+      this.newbookObj.publisher = 'yyds' + getRandomName(1)
       if (!this.newbookObj.bookname.trim()) return alert('书名不能为空')
       if (!this.newbookObj.author.trim()) return alert('作者不能为空')
       if (!this.newbookObj.publisher.trim()) return alert('出版社不能为空')
@@ -201,6 +213,13 @@ export default {
           // let index = this.$parent.list.findIndex((ele) => ele.id == val)
           // this.$parent.list.splice(index, 1)
         })
+    },
+    bookinfo(val) {
+      this.read = true
+      let index = this.$parent.list.findIndex((ele) => ele.id == val)
+      this.newbookObj.bookname = this.$parent.list[index].bookname
+      this.newbookObj.author = this.$parent.list[index].author
+      this.newbookObj.publisher = this.$parent.list[index].publisher
     },
   },
 }
