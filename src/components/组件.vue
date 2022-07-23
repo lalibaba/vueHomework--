@@ -1,18 +1,17 @@
 <template>
-  <div>
-
-  </div>
+  <div></div>
 </template>
 
 <script>
 export default {
-  name: 'App',
+  name: '组件',
   data() {
-    return {}
+    return {
+      
+    }
   },
   methods: {},
 }
 </script>
 
 <style scoped></style>
-
