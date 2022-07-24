@@ -1,14 +1,14 @@
 <template>
-  <div></div>
+  <div>
+    <p>2</p>
+  </div>
 </template>
 
 <script>
 export default {
-  name: '组件',
+  name: 'App',
   data() {
-    return {
-      
-    }
+    return {}
   },
   methods: {},
 }
